@@ -1,0 +1,9 @@
+version: "3"
+services:
+  base:
+    build: .
+    container_name: argo-tokens
+    ports:
+      - 2000:3000
+    volumes:
+      - ./data/cache:/app/cache
