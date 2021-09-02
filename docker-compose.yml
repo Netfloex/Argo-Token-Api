@@ -1,9 +1,16 @@
 version: "3"
 services:
-  base:
-    build: .
+  argo-tokens:
+    image: netfloex/argo_token_api
     container_name: argo-tokens
-    ports:
-      - 2000:3000
+    environment:
+      TOKEN: "secret"
+    # ports:
+    # - 2000:3000
     volumes:
-      - ./data/cache:/app/cache
+      - ./data:/app/data
+
+networks:
+  default:
+    external:
+      name: nginx
